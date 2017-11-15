@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wave Project</title>
+  <style type="text/css">
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background-color: #000000;
+      height: 100vh;
+    }
+    #a {
+      width: 450px;
+      height: 450px;
+      margin-left: 60px;
+      color: #ffffff;
+      font-family: monospace;
+      letter-spacing: 12px;
+      line-height: 1.4;
+      /*background-color: rgba(255,255,255,0.1);*/
+    }
+    #s {
+      color: white;
+      font-size: courier sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="s">You Will Give Laura All Your Money</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
+
+  <script type="text/javascript">
+    let s = Array(625).fill();
+
+    function draw() {
+      for (let i = 0; i < 25; i++) {
+      for (let j = 0; j < 25; j++) {
+        const t = (j + frameCount) / 5;
+        const x = i + floor(sin(t) * 4);
+        s[i * 25 + j] = j == 24 ? "\n" : x > 9 ? "x" : ".";
+      }
+      }
+      a.innerText = s.join("");
+    }
+  </script>
+  <div id="a"></div>
+</body>
+</html>
